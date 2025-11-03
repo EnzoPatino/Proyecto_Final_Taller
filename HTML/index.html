@@ -4,21 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoNova</title>
+    <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
    <header>
     <div class="header-content">
-      <a href="index.html">
+      <a href="#inicio">
         <img src="img/logo.png" alt="logo" height="50" width="50" id="logo" />
       </a>
 
       <nav class="header-nav">
-        <a href="index.html">Inicio</a>
-        <a href="">Productos</a>
-        <a href="">Ubicación</a>
-        <a href="">Contacto</a>
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Catálogo</a>
+        <a href="#contacto">Contacto</a>
       </nav>
     </div>
   </header>
+
+  <div class="hero">
+    <img src="img/photo-1630574857663-bdc4ae3c8ec0.png" alt="AutoNova" class="hero-image">
+    <div class="hero-content">
+      <h1>AutoNova</h1>
+      <p>los mejores en la venta y compra de autos</p>
+    </div>
+  </div>
+
+  <!--Inicio-->
+  <section id="inicio" class="inicio">
+  </section>
+
+  <!--Galeria de productos-->
+  <section id="productos" class="productos">
+    <h2>Nuestro Catálogo</h2>
+    <div class="productos-grid">
+      <!-- Aquí irán las tarjetas de productos -->
+      <div class="producto-card">
+        <!-- Ejemplo de card de producto -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Contacto -->
+  <section id="contacto" class="contacto">
+    <h2>Contacto</h2>
+    <div class="contacto-content">
+      <form class="contacto-form">
+        <input type="text" placeholder="Nombre" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Mensaje" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+      <div class="contacto-info">
+        <h3>Información de Contacto</h3>
+        <p>Email: info@autonova.com</p>
+        <p>Teléfono: (123) 456-7890</p>
+        <p>Dirección: Calle Principal #123</p>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>

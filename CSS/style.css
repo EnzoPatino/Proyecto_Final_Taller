@@ -1,0 +1,156 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+header {
+  background: #0b3a66;
+  color: #fff0f0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+body {
+  padding-top: 74px;
+}
+
+.header-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+}
+
+#logo {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+  align-items: center;
+}
+
+.header-nav {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+.header-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 6px;
+  transition: background 0.18s, transform 0.08s;
+
+}
+.header-nav a:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-1px);
+}
+
+section.productos {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 20px;
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+/* Inicio section*/
+#inicio {
+  padding: 40px 0;
+  position: relative;
+  background: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-content { padding: 10px; }
+  .header-nav { gap: 10px; font-size: 14px; }
+  
+  .hero {
+    max-height: 300px;
+  }
+  
+  body {
+    padding-top: 64px;
+  }
+}
+
+.inicio {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.inicio-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+}
+
+.inicio-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.inicio-content p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
