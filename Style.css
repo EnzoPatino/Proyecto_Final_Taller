@@ -1,0 +1,25 @@
+body{
+    padding: 0px;
+    margin: 0%;
+    background-color: rgb(255, 255, 255);
+    
+}
+
+.autos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 5px;
+  padding: 5px;
+}
+
+.autos img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+
+.autos img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+}
