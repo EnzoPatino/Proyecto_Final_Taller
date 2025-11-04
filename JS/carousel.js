@@ -5,15 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.querySelector('.next');
     
     let counter = 0;
-    const itemWidth = 50; // 50% of container width
+    const itemWidth = 33.333; // Cambiar a 33.333% para mostrar 3 elementos
     
     // Set initial position
     updateCarousel();
     
     // Next button
     nextBtn.addEventListener('click', () => {
-        if (counter >= carouselItems.length - 2) return;
-        carouselSlide.style.transition = 'transform 0.5s ease-in-out';
+        if (counter >= carouselItems.length - 3) return;
         counter++;
         updateCarousel();
     });
@@ -21,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Previous button
     prevBtn.addEventListener('click', () => {
         if (counter <= 0) return;
-        carouselSlide.style.transition = 'transform 0.5s ease-in-out';
         counter--;
         updateCarousel();
     });
@@ -30,9 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const offset = -counter * itemWidth;
         carouselSlide.style.transform = `translateX(${offset}%)`;
         
-        // Update button states
-        prevBtn.style.display = counter === 0 ? 'none' : 'flex';
-        nextBtn.style.display = counter >= carouselItems.length - 2 ? 'none' : 'flex';
+        // Actualizar visibilidad de botones
+        prevBtn.style.display = counter === 0 ? 'none' : 'block';
+        nextBtn.style.display = counter >= carouselItems.length - 3 ? 'none' : 'block';
     }
     
     // Touch support for mobile
