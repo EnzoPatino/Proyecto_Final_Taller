@@ -1,0 +1,351 @@
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    padding-top: 74px;
+}
+
+header {
+    background: #0b3a66;
+    color: #fff0f0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+}
+
+#logo {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+}
+
+.header-nav {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.header-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition: background 0.18s, transform 0.08s;
+}
+
+.header-nav a:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-1px);
+}
+
+section.productos {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+  background: #f9f9f9;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+/* Carousel Styles */
+.carousel-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 40px auto;
+  overflow: hidden;
+  background: white;
+  padding: 40px 0;
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.carousel-item {
+  min-width: 33.333%;
+  flex: 0 0 33.333%;
+  padding: 20px;
+  text-decoration: none;
+  color: #333;
+  text-align: center;
+}
+
+.carousel-item img {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.carousel-item:hover img {
+  transform: scale(1.1);
+}
+
+.carousel-item h3 {
+  font-size: 24px;
+  color: #0b3a66;
+  margin-top: 10px;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(11, 58, 102, 0.8);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.hero {
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+/* Inicio section - now empty but kept for structure */
+#inicio {
+  padding: 40px 0;
+  position: relative;
+  background: white;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-content { padding: 10px; }
+  .header-nav { gap: 10px; font-size: 14px; }
+  
+  .hero {
+    max-height: 300px;
+  }
+  
+  body {
+    padding-top: 64px;
+  }
+}
+
+.inicio {
+    position: relative;
+    width: 100%;
+    min-height: auto; /* evitar que reserve 100vh extra */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.inicio-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+}
+
+.inicio-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.inicio-content p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para la sección de productos: columnas verticales y tamaño uniforme de imágenes */
+.productos .carousel-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    align-items: start;
+    padding: 1rem 0;
+}
+
+.productos .carousel-item {
+    display: block;
+    text-align: center;
+    padding: 0.6rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    transition: transform .15s ease, box-shadow .15s ease;
+    color: inherit;
+    text-decoration: none;
+}
+
+.productos .carousel-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.productos .carousel-item img {
+    width: 100%;
+    height: 160px; /* altura uniforme */
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
+
+.productos .carousel-item h3 {
+    margin: 0.6rem 0 0;
+    font-size: 1rem;
+}
+
+/* Botones del carrusel (si aún se usan) se ocultan en el layout de columnas */
+.carousel-btn { display: none; }
+
+/* Estilos generales que ayudan en páginas de detalle */
+.detail-gallery {
+    max-width: 1000px;
+    margin: 1.2rem auto;
+    display: grid;
+    gap: 1rem;
+}
+
+.detail-gallery .slide img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .productos .carousel-item img { height: 140px; }
+    .detail-gallery .slide img { height: 260px; }
+}
+
+/* Contenedor que corta la imagen y permite el pan sobre hover */
+.pan {
+  overflow: hidden;
+  border-radius: 8px;
+  /* ajustar alto fijo o relativo según diseño */
+  height: 160px;
+  margin: 0.6rem 0;
+  display: block;
+  background: #fff;
+}
+
+/* Imagen que se mueve y escala siguiendo el cursor */
+.pan-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.35s ease-out;
+}
+
+/* opcional: ajustar en pantallas pequeñas */
+@media (max-width: 600px) {
+  .pan { height: 140px; }
+}
+
+.image-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pan {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.pan-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.35s ease-out;
+}
+
+@media (max-width: 768px) {
+    .image-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .pan {
+        height: 180px;
+    }
+}

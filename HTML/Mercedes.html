@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercedes</title>
-    <link rel="stylesheet" href="../Style.css">
+    <link rel="stylesheet" href="../CSS/marcas.css">
 </head>
 <body>
      <header>
@@ -17,21 +17,44 @@
         <a href="">Ubicación</a>
         <a href="">Contacto</a>
     </header>
-    <div>
-        <img src="img Mercedes/1920_gla-220d-003.jpg" alt="">
+    
+    <div class="image-container">
+        <div class="pan">
+          <a href="GLA_SUV_marzo_2017.html">
+            <img class="pan-img" src="img Mercedes/1920_gla-220d-003.jpg" alt="">
+          </a>
+          </div>
+        <div class="pan"><img class="pan-img" src="img Mercedes/descargar.webp" alt=""></div>
+        <div class="pan"><img class="pan-img" src="img Mercedes/Mercedes-Benz-Clase-C-2022-delantera.jpg" alt=""></div>
+        <div class="pan"><img class="pan-img" src="img Mercedes/OIP (1).webp" alt=""></div>
+        <div class="pan"><img class="pan-img" src="img Mercedes/OIP (3).webp" alt=""></div>
+        <div class="pan"><img class="pan-img" src="img Mercedes/OIP.webp" alt=""></div>
     </div>
-    <div>
-        <img src="img Mercedes/descargar.webp" alt="">
-    </div>
-    <div>
-        <img src="img Mercedes/Mercedes-Benz-Clase-C-2022-delantera.jpg" alt="">
-    </div>
-    <div>
-        <img src="img Mercedes/OIP (1).webp" alt="">
-    </div>
-    <div><img src="img Mercedes/OIP (3).webp" alt=""></div>
-    <div>
-        <img src="img Mercedes/OIP.webp" alt="">
-    </div>
+
+<script>
+// Efecto de "pan" que sigue el cursor y muestra la imagen completa
+document.querySelectorAll('.pan-img').forEach(img => {
+  // requiere que el padre tenga overflow:hidden (clase .pan en el HTML)
+  img.style.transition = 'transform 0.35s ease-out';
+  img.style.willChange = 'transform';
+  const scale = 1.25; // cuánto agrandar la imagen al hacer hover
+  img.parentElement.addEventListener('mousemove', e => {
+    const rect = img.parentElement.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width; // 0..1
+    const y = (e.clientY - rect.top) / rect.height;
+    // calcular traslación en % para mostrar la parte correspondiente
+    const moveX = (x - 0.5) * 100 * (scale - 1) / scale;
+    const moveY = (y - 0.5) * 100 * (scale - 1) / scale;
+    img.style.transform = `scale(${scale}) translate(${ -moveX }%, ${ -moveY }%)`;
+  });
+  img.parentElement.addEventListener('mouseleave', () => {
+    img.style.transform = 'scale(1) translate(0, 0)';
+  });
+  // al entrar, aplicar el escalado inicial (para suavizar)
+  img.parentElement.addEventListener('mouseenter', () => {
+    img.style.transform = `scale(${scale}) translate(0, 0)`;
+  });
+});
+</script>
 </body>
 </html>
