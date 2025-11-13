@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audi</title>
-    <link rel="stylesheet" href="../CSS/Audi.css">
+    <link rel="stylesheet" href="../CSS/marcas.css">
 </head>
 <body>
      <header>
@@ -20,24 +20,50 @@
       </div>
     </header>
 
-     <div class="carousel-container detail-gallery">
-      <div class="carousel-slide slide">
-        <div>
-            <img src="img Audi/2022_audi_q3_4dr-suv_premium-plus-s-line_fq_oem_1_600.avif" alt="Audi Q3">
+     <div class="image-container">
+        <div class="pan">
+            <img class="pan-img" src="img Audi/audi a4.jpg" alt="">
         </div>
-        <div>
-            <img src="img Audi/2024_Audi_A3_2.jpg" alt="Audi A3">
+        <div class="pan">
+            <img class="pan-img"  src="img Audi/audi q2.jpg" alt="">
         </div>
-        <div>
-            <img src="img Audi/2025-audi-q5-112-66d1c3a5d34fd.avif" alt="Audi Q5">
+        <div class="pan"> 
+            <img class="pan-img"  src="img Audi/audi e30.jpg" alt="">
         </div>
-        <div>
-            <img src="img Audi/Arkona White-Z9Z9-248,249,247-640-en_US.webp" alt="Audi Arkona">
+        <div class="pan">
+            <img class="pan-img"  src="img Audi/audi tt.jpg" alt="">
         </div>
-        <div>
-            <img src="img Audi/front-left-640-en_US.avif" alt="Audi front">
+        <div class="pan">
+            <img class="pan-img"  src="" alt="">
         </div>
-      </div>
+        <div class="pan">
+            <img class="pan-img"  src="" alt="">
+        </div>
      </div>
+     <script>
+// Efecto de "pan" que sigue el cursor y muestra la imagen completa
+document.querySelectorAll('.pan-img').forEach(img => {
+  // requiere que el padre tenga overflow:hidden (clase .pan en el HTML)
+  img.style.transition = 'transform 0.35s ease-out';
+  img.style.willChange = 'transform';
+  const scale = 1.25; // cuánto agrandar la imagen al hacer hover
+  img.parentElement.addEventListener('mousemove', e => {
+    const rect = img.parentElement.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width; // 0..1
+    const y = (e.clientY - rect.top) / rect.height;
+    // calcular traslación en % para mostrar la parte correspondiente
+    const moveX = (x - 0.5) * 100 * (scale - 1) / scale;
+    const moveY = (y - 0.5) * 100 * (scale - 1) / scale;
+    img.style.transform = `scale(${scale}) translate(${ -moveX }%, ${ -moveY }%)`;
+  });
+  img.parentElement.addEventListener('mouseleave', () => {
+    img.style.transform = 'scale(1) translate(0, 0)';
+  });
+  // al entrar, aplicar el escalado inicial (para suavizar)
+  img.parentElement.addEventListener('mouseenter', () => {
+    img.style.transform = `scale(${scale}) translate(0, 0)`;
+  });
+});
+</script>
 </body>
 </html>
