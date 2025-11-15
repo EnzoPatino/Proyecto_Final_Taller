@@ -218,3 +218,62 @@ section.productos {
     font-size: 1.5rem;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
+
+/* Redes sociales: alineadas a la izquierda y glow por color al hover */
+.container-redes {
+    display: flex;
+    gap: 24px;
+    margin-top: 12px;
+    justify-content: flex-start; /* asegura que queden a la izquierda */
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.icono {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    outline: none;
+}
+
+.icono img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    filter: grayscale(100%); /* iconos en gris por defecto */
+    transition: filter 180ms ease, transform 180ms ease;
+}
+
+/* al pasar el mouse se recupera color y aparece el glow del color de la marca */
+.icono:hover,
+.icono:focus {
+    transform: translateY(-4px);
+}
+
+.icono:hover img,
+.icono:focus img {
+    filter: none;
+}
+
+/* colores de marca (sombra/glow) */
+.icono.instagram:hover    { box-shadow: 0 8px 28px rgb(255, 0, 85); }
+.icono.twitter:hover      { box-shadow: 0 8px 28px rgb(2, 126, 204); }
+.icono.whatsapp:hover     { box-shadow: 0 8px 28px rgb(10, 236, 93); }
+.icono.facebook:hover     { box-shadow: 0 8px 28px rgba(3, 67, 151, 0.951); }
+.icono.Gmail:hover        { box-shadow: 0 8px 28px rgb(219, 68, 55); }
+
+/* accesibilidad teclado */
+.icono:focus { box-shadow: 0 8px 28px rgba(0,0,0,0.12); }
+
+/* opcional: ajusta tamaño en pantallas pequeñas */
+@media (max-width: 480px) {
+    .icono { width: 60px; height: 60px; }
+    .icono img { width: 36px; height: 36px; }
+}
