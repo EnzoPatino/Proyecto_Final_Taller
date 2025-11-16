@@ -17,22 +17,29 @@ body {
 .header-content {
   max-width: 1100px;
   margin: 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  justify-content: space-between;
-  padding: 12px 20px;
+  padding: 12px 20px 12px 0;
+  position: relative;
+}
+
+.header-content > a {
+  padding-left: 20px;
+}
+
+.header-nav {
+  grid-column: 2;
+  justify-self: center;
+  display: flex;
+  gap: 18px;
+  align-items: center;
 }
 
 #logo {
   height: 50px;
   width: 50px;
   object-fit: contain;
-  align-items: center;
-}
-
-.header-nav {
-  display: flex;
-  gap: 18px;
   align-items: center;
 }
 .header-nav a {
