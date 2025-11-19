@@ -29,20 +29,114 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.contenido {
+.contenido,
+.contenido-container {
     flex: 1;
     padding: 20px;
 }
 
-.contenido h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
-    color: #333;
+.contenido h1,
+.contenido-container h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    margin-top: 25px;
+    color: #0b3a66;
+    font-weight: 700;
+    border-bottom: 3px solid #0b3a66;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.contenido p {
+.contenido h1:first-child,
+.contenido-container h1:first-child {
+    margin-top: 0;
+}
+
+.contenido h2,
+.contenido-container h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    margin-top: 20px;
+    color: #1a5a8a;
+    font-weight: 600;
+    border-left: 4px solid #1a5a8a;
+    padding-left: 15px;
+}
+
+.contenido h3,
+.contenido-container h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 18px;
+    color: #2a7ab8;
+    font-weight: 600;
+    border-left: 3px solid #2a7ab8;
+    padding-left: 12px;
+    transition: all 0.3s ease;
+}
+
+.contenido h3:hover,
+.contenido-container h3:hover {
+    color: #0b3a66;
+    border-left-color: #0b3a66;
+    transform: translateX(5px);
+    padding-left: 17px;
+}
+
+.contenido p,
+.contenido-container p {
     font-size: 16px;
-    color: #666;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 8px;
+    padding-left: 5px;
+    transition: all 0.2s ease;
+}
+
+.contenido p:hover,
+.contenido-container p:hover {
+    color: #0b3a66;
+    padding-left: 10px;
+}
+
+/* Animaciones para JavaScript - Los elementos son visibles por defecto */
+.contenido h1,
+.contenido h2,
+.contenido h3,
+.contenido p,
+.contenido-container h1,
+.contenido-container h2,
+.contenido-container h3,
+.contenido-container p {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Solo aplicar animación si JavaScript agrega la clase .animate-on-scroll */
+.contenido.animate-on-scroll h1,
+.contenido.animate-on-scroll h2,
+.contenido.animate-on-scroll h3,
+.contenido.animate-on-scroll p,
+.contenido-container.animate-on-scroll h1,
+.contenido-container.animate-on-scroll h2,
+.contenido-container.animate-on-scroll h3,
+.contenido-container.animate-on-scroll p {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.contenido.animate-on-scroll h1.visible,
+.contenido.animate-on-scroll h2.visible,
+.contenido.animate-on-scroll h3.visible,
+.contenido.animate-on-scroll p.visible,
+.contenido-container.animate-on-scroll h1.visible,
+.contenido-container.animate-on-scroll h2.visible,
+.contenido-container.animate-on-scroll h3.visible,
+.contenido-container.animate-on-scroll p.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Barra de búsqueda */
