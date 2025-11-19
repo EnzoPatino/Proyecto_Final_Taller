@@ -16,7 +16,7 @@
                 <h1 class="h3 mb-1">Agregar auto</h1>
                 <p class="text-muted mb-0">Completa el formulario para sumar un vehículo al catálogo.</p>
             </div>
-            <a href="index.php" class="btn btn-outline-secondary">← Volver a la lista</a>
+            <a href="../crud.php" class="btn btn-outline-secondary">← Volver a la lista</a>
         </div>
 
         <div class="card shadow-sm">
@@ -44,7 +44,7 @@
 
                     <div class="d-flex gap-2">
                         <button type="submit" class="btn btn-outline-dark">Guardar</button>
-                        <a href="index.php" class="btn btn-secondary">Cancelar</a>
+                        <a href="../crud.php" class="btn btn-secondary">Cancelar</a>
                     </div>
                 </form>
             </div>
