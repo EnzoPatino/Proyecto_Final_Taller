@@ -4,24 +4,73 @@
     <meta charset="UTF-8">
     <meta name="Ford" content="width=device-width, initial-scale=1.0">
     <title>Ford</title>
-    <link rel="stylesheet" href="../Style.css">
+    <link rel="stylesheet" href="../CSS/marcas.css">
 </head>
 <body>
      <header>
         <div class="header-content">
         <a href="../index.html#inicio">
-        <img src="img/logo.png" alt="logo" height="50" width="50" id="logo" />
+        <img src="img/photo-1630574857663-bdc4ae3c8ec0.png" alt="logo" height="50" width="50" id="logo" />
       </a>
       <nav class="header-nav">
         <a href="../index.html#inicio">Inicio</a>
         <a href="../index.html#catalogo">Catálogo</a>
         <a href="../index.html#contacto">Contacto</a>
     </header>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div class="image-container">
+        <div class="pan">
+          <a href="Ford focus ST.html">
+            <img class="pan-img" src="img Ford/focus st.webp" alt="">
+            </a>
+        </div>
+        <div class="pan">
+          <a href="Ford mustang Gt.html">
+            <img class="pan-img"  src="img Ford/Mustang Gt.avif" alt="">
+            </a>
+        </div>
+        <div class="pan"> 
+          <a href="Ford F-150 Raptor.html">
+            <img class="pan-img"  src="img Ford/F-150 raptor.webp" alt="">
+            </a>
+        </div>
+        <div class="pan">
+          <a href="Ford Falcon.html">
+            <img class="pan-img"  src="img Ford/Falcon.webp" alt="">
+            </a>
+        </div>
+        <div class="pan">
+          <a href="Ford Granada.html">
+            <img class="pan-img"  src="img Ford/Granada.webp" alt="">
+            </a>
+        </div>
+        <div class="pan">
+          <a href="Ford ecosport.html">
+            <img class="pan-img"  src="img Ford/ecosport.webp" alt="">
+            </a>
+        </div>
+     </div>
+  <script> // Efecto de "pan" que sigue el cursor y muestra la imagen completa
+document.querySelectorAll('.pan-img').forEach(img => {
+  // requiere que el padre tenga overflow:hidden (clase .pan en el HTML)
+  img.style.transition = 'transform 0.35s ease-out';
+  img.style.willChange = 'transform';
+  const scale = 1.25; // cuánto agrandar la imagen al hacer hover
+  img.parentElement.addEventListener('mousemove', e => {
+    const rect = img.parentElement.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width; // 0..1
+    const y = (e.clientY - rect.top) / rect.height;
+    // calcular traslación en % para mostrar la parte correspondiente
+    const moveX = (x - 0.5) * 100 * (scale - 1) / scale;
+    const moveY = (y - 0.5) * 100 * (scale - 1) / scale;
+    img.style.transform = `scale(${scale}) translate(${ -moveX }%, ${ -moveY }%)`;
+  });
+  img.parentElement.addEventListener('mouseleave', () => {
+    img.style.transform = 'scale(1) translate(0, 0)';
+  });
+  // al entrar, aplicar el escalado inicial (para suavizar)
+  img.parentElement.addEventListener('mouseenter', () => {
+    img.style.transform = `scale(${scale}) translate(0, 0)`;
+  });
+});</script> 
 </body>
 </html>
