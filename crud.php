@@ -1,9 +1,34 @@
 <?php
+// Primero conectar sin especificar base de datos para poder crearla si no existe
+$conexion_temp = mysqli_connect("localhost", "root", "");
+
+if (!$conexion_temp) {
+    die("Error de conexión: " . mysqli_connect_error());
+}
+
+// Crear la base de datos si no existe
+mysqli_query($conexion_temp, "CREATE DATABASE IF NOT EXISTS AutoNova CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
+mysqli_close($conexion_temp);
+
+// Ahora conectar a la base de datos
 $conexion = mysqli_connect("localhost", "root", "", "AutoNova");
 
 if (!$conexion) {
     die("Error de conexión: " . mysqli_connect_error());
 }
+
+// Crear la tabla si no existe
+$crear_tabla = "CREATE TABLE IF NOT EXISTS autos (
+    ID_Autos INT AUTO_INCREMENT PRIMARY KEY,
+    Marca VARCHAR(100) NOT NULL,
+    Modelo VARCHAR(100) NOT NULL,
+    Contenido TEXT NOT NULL,
+    Precios DECIMAL(10, 2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
+
+mysqli_query($conexion, $crear_tabla);
 
 $resultado = mysqli_query($conexion, "SELECT * FROM autos ORDER BY ID_Autos DESC");
 ?>
@@ -26,7 +51,7 @@ $resultado = mysqli_query($conexion, "SELECT * FROM autos ORDER BY ID_Autos DESC
                 <h1 class="h3 mb-1">AutoNova</h1>
                 <p class="text-muted mb-0">Gestión básica de vehículos (CRUD)</p>
             </div>
-            <a class="btn btn-outline-primary mt-3 mt-md-0" href="agregar.php">➕ Agregar auto</a>
+            <a class="btn btn-outline-primary mt-3 mt-md-0" href="HTML/agregar.php"> Agregar auto</a>
         </header>
 
         <div class="card shadow-sm">
@@ -54,9 +79,9 @@ $resultado = mysqli_query($conexion, "SELECT * FROM autos ORDER BY ID_Autos DESC
                                         <td><?php echo number_format($fila['Precios'], 2); ?></td>
                                         <td class="text-center">
                                             <a class="btn btn-sm btn-warning"
-                                                href="editar.php?ID_Autos=<?php echo $fila['ID_Autos']; ?>">Editar</a>
+                                                href="HTML/editar.php?ID_Autos=<?php echo $fila['ID_Autos']; ?>">Editar</a>
                                             <a class="btn btn-sm btn-danger"
-                                                href="eliminar.php?ID_Autos=<?php echo $fila['ID_Autos']; ?>"
+                                                href="HTML/eliminar.php?ID_Autos=<?php echo $fila['ID_Autos']; ?>"
                                                 onclick="return confirm('¿Está seguro de eliminar este auto?')">Eliminar</a>
                                         </td>
                                     </tr>

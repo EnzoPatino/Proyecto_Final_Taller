@@ -12,7 +12,7 @@ if ($id > 0) {
 }
 
 mysqli_close($conexion);
-header("Location: index.php");
+header("Location: ../crud.php");
 exit;
 ?>
 

@@ -8,7 +8,7 @@ if (!$conexion) {
 $id = $_GET['ID_Autos'] ?? null;
 
 if (!$id) {
-    header("Location: index.php");
+    header("Location: ../crud.php");
     exit;
 }
 
@@ -18,7 +18,7 @@ $auto = mysqli_fetch_assoc($resultado);
 
 if (!$auto) {
     mysqli_close($conexion);
-    header("Location: index.php");
+    header("Location: ../crud.php");
     exit;
 }
 ?>
@@ -41,7 +41,7 @@ if (!$auto) {
                 <h1 class="h3 mb-1">Editar auto</h1>
                 <p class="text-muted mb-0">Modifica la información del vehículo seleccionado.</p>
             </div>
-            <a href="index.php" class="btn btn-outline-secondary">← Volver a la lista</a>
+            <a href="../crud.php" class="btn btn-outline-secondary">← Volver a la lista</a>
         </div>
 
         <div class="card shadow-sm">
@@ -75,7 +75,7 @@ if (!$auto) {
 
                     <div class="d-flex gap-2">
                         <button type="submit" class="btn btn-outline-dark">Actualizar</button>
-                        <a href="index.php" class="btn btn-secondary">Cancelar</a>
+                        <a href="../crud.php" class="btn btn-secondary">Cancelar</a>
                     </div>
                 </form>
             </div>

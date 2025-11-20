@@ -14,7 +14,7 @@ $precio = floatval($_POST['precio'] ?? 0);
 $consulta = "UPDATE autos SET Marca = '$marca', Modelo = '$modelo', Contenido = '$contenido', Precios = $precio WHERE ID_Autos = $id";
 
 if (mysqli_query($conexion, $consulta)) {
-    header("Location: index.php");
+    header("Location: ../crud.php");
     exit;
 } else {
     echo "Error al actualizar: " . mysqli_error($conexion);

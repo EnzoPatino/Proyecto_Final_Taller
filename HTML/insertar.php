@@ -18,7 +18,7 @@ $precio = floatval($precio);
 $consulta = "INSERT INTO autos (Marca, Modelo, Contenido, Precios) VALUES ('$marca', '$modelo', '$contenido', $precio)";
 
 if (mysqli_query($conexion, $consulta)) {
-    header("Location: index.php");
+    header("Location: ../crud.php");
     exit;
 } else {
     echo "Error al guardar: " . mysqli_error($conexion);
