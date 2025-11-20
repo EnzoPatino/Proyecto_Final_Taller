@@ -40,19 +40,26 @@ $resultado = mysqli_query($conexion, "SELECT * FROM autos ORDER BY ID_Autos DESC
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoNova | CRUD de Autos</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body class="bg-light">
     <div class="container py-4">
-        <header class="d-flex flex-column flex-md-row align-items-md-center justify-content-between mb-4">
-            <div>
-                <h1 class="h3 mb-1">AutoNova</h1>
-                <p class="text-muted mb-0">Gestión básica de vehículos (CRUD)</p>
-            </div>
-            <a class="btn btn-outline-primary mt-3 mt-md-0" href="HTML/agregar.php"> Agregar auto</a>
-        </header>
+  <header>
+    <div class="header-content">
+        <a href="index.html">
+            <img src="HTML/img/photo-1630574857663-bdc4ae3c8ec0.png" alt="logo" height="50" width="50" id="logo" />
+        </a>
+        <nav class="header-nav">
+            <a href="index.html#inicio" class="hero">Inicio</a>
+            <a href="index.html#catalogo" class="enlaces">Catálogo</a>
+            <a href="index.html#contacto" class="enlaces">Contacto</a>
+            <a href="crud.php" target="_blank">Administrar Autos</a>
+        </nav>
+    </div>
+  </header>
 
         <div class="card shadow-sm">
             <div class="card-body">
