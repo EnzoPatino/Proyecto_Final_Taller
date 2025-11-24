@@ -36,13 +36,23 @@ $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<<<<<<< HEAD
     <meta charset="utf-8">
     <title>AutoNova - Lista</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="CSS/style.css">
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoNova | CRUD de Autos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+>>>>>>> 6bfe6bf6b952ebcabf3a1177c4fb2609db994731
 </head>
 <body class="bg-light">
+<<<<<<< HEAD
 <header class="navbar-container">
     <div class="navbar">
       <a href="index.html#inicio" class="navbar-logo">
@@ -63,6 +73,71 @@ $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3">Lista de autos</h1>
         <a href="HTML/agregar.php" class="btn btn-outline-primary">Agregar auto</a>
+=======
+    <div class="container py-4">
+  <header>
+    <div class="header-content">
+        <a href="index.html">
+            <img src="HTML/img/photo-1630574857663-bdc4ae3c8ec0.png" alt="logo" height="50" width="50" id="logo" />
+        </a>
+        <nav class="header-nav">
+            <a href="index.html#inicio" class="hero">Inicio</a>
+            <a href="index.html#catalogo" class="enlaces">Catálogo</a>
+            <a href="index.html#contacto" class="enlaces">Contacto</a>
+            <a href="crud.php" target="_blank">Administrar Autos</a>
+        </nav>
+    </div>
+  </header>
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped align-middle mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Marca</th>
+                                <th scope="col">Modelo</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Precio (USD)</th>
+                                <th scope="col" class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if ($resultado && mysqli_num_rows($resultado) > 0) : ?>
+                                <?php while ($fila = mysqli_fetch_assoc($resultado)) : ?>
+                                    <tr>
+                                        <td><?php echo $fila['ID_Autos']; ?></td>
+                                        <td><?php echo htmlspecialchars($fila['Marca']); ?></td>
+                                        <td><?php echo htmlspecialchars($fila['Modelo']); ?></td>
+                                        <td><?php echo nl2br(htmlspecialchars($fila['Contenido'])); ?></td>
+                                        <td><?php echo number_format($fila['Precios'], 2); ?></td>
+                                        <td class="text-center">
+                                            <a class="btn btn-sm btn-warning"
+                                                href="HTML/editar.php?ID_Autos=<?php echo $fila['ID_Autos']; ?>">Editar</a>
+                                            <a class="btn btn-sm btn-danger"
+                                                href="HTML/eliminar.php?ID_Autos=<?php echo $fila['ID_Autos']; ?>"
+                                                onclick="return confirm('¿Está seguro de eliminar este auto?')">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                <?php endwhile; ?>
+                            <?php else : ?>
+                                <tr>
+                                    <td colspan="6" class="text-center py-4 text-muted">
+                                        No hay autos cargados todavía.
+                                    </td>
+                                </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center text-muted mt-4">
+            <small>CRUD de ejemplo - Programación Web Estática</small>
+        </footer>
+>>>>>>> 6bfe6bf6b952ebcabf3a1177c4fb2609db994731
     </div>
 
     <?php if ($msg): ?>

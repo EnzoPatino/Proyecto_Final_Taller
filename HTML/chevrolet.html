@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <!doctype html>
 <html lang="es">
   <head>
@@ -32,5 +33,82 @@
         </div>
       </section>
     </main>
+=======
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Chevrolet" content="width=device-width, initial-scale=1.0">
+    <title>Chevrolet</title>
+    <link rel="stylesheet" href="../CSS/marcas.css">
+</head>
+<body>
+     <header>
+        <div class="header-content">
+        <a href="../index.html#inicio">
+        <img src="img/logo.png" alt="logo" height="50" width="50" id="logo" />
+      </a>
+      <nav class="header-nav">
+        <a href="../index.html#inicio">Inicio</a>
+        <a href="../index.html#catalogo">Catálogo</a>
+        <a href="../index.html#contacto">Contacto</a>
+    </header>
+   <div class="image-container">
+        <div class="pan">
+          <a href="Chvrolet onix.html">
+            <img class="pan-img" src="img Chevrolet/onix.webp" alt="">
+            </a>
+        </div>
+        <div class="pan">
+          <a href="chevrolet corvette.html">
+            <img class="pan-img"  src="img Chevrolet/corvette.webp" alt="">
+            </a>
+        </div>
+        <div class="pan"> 
+          <a href="Chevrolet camaro.html">
+            <img class="pan-img"  src="img Chevrolet/camaro.webp" alt="">
+            </a>
+        </div>
+        <div class="pan">
+          <a href="Chevrolet Cruze.html">
+            <img class="pan-img"  src="img Chevrolet/cruze.jpg" alt= "">
+            </a>
+        </div>
+        <div class="pan">
+          <a href="Chevrolet S10.html">
+            <img class="pan-img"  src="img Chevrolet/s10.jpg" alt="">
+            </a>
+        </div>
+        <div class="pan">
+          <a href="Chevrolet chevelle.html">
+            <img class="pan-img"  src="img Chevrolet/chevelle.jpg" alt="">
+            </a>
+        </div>
+     </div>
+     <script>
+// Efecto de "pan" que sigue el cursor y muestra la imagen completa
+document.querySelectorAll('.pan-img').forEach(img => {
+  // requiere que el padre tenga overflow:hidden (clase .pan en el HTML)
+  img.style.transition = 'transform 0.35s ease-out';
+  img.style.willChange = 'transform';
+  const scale = 1.25; // cuánto agrandar la imagen al hacer hover
+  img.parentElement.addEventListener('mousemove', e => {
+    const rect = img.parentElement.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width; // 0..1
+    const y = (e.clientY - rect.top) / rect.height;
+    // calcular traslación en % para mostrar la parte correspondiente
+    const moveX = (x - 0.5) * 100 * (scale - 1) / scale;
+    const moveY = (y - 0.5) * 100 * (scale - 1) / scale;
+    img.style.transform = `scale(${scale}) translate(${ -moveX }%, ${ -moveY }%)`;
+  });
+  img.parentElement.addEventListener('mouseleave', () => {
+    img.style.transform = 'scale(1) translate(0, 0)';
+  });
+  // al entrar, aplicar el escalado inicial (para suavizar)
+  img.parentElement.addEventListener('mouseenter', () => {
+    img.style.transform = `scale(${scale}) translate(0, 0)`;
+  });
+});
+</script>
+>>>>>>> 6bfe6bf6b952ebcabf3a1177c4fb2609db994731
 </body>
 </html>
