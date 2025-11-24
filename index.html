@@ -4,109 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoNova</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="style" href="CSS/Autos.css">
 </head>
 <body>
-  <header>
-    <div class="header-content">
-        <a href="#inicio">
-            <img src="HTML/img/photo-1630574857663-bdc4ae3c8ec0.png" alt="logo" height="50" width="50" id="logo" />
-        </a>
-        <nav class="header-nav">
-            <a href="#inicio">Inicio</a>
-            <a href="#catalogo">Catálogo</a>
-            <a href="#contacto">Contacto</a>
-            <a href="crud.php" target="_blank">Administrar Autos</a>
-        </nav>
+  <header class="navbar-container">
+    <div class="navbar">
+      <a href="#inicio" class="navbar-logo">
+        <img src="HTML/img/photo-1630574857663-bdc4ae3c8ec0.png" alt="logo" height="70" width="70" id="logo" />
+      </a>
+      <nav aria-label="Navegación principal">
+        <ul class="navbar-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="crud.php" target="_blank" rel="noopener">Administrar Autos</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
- <div class="hero" id="inicio">
-  <img src="HTML/img/photo-1630574857663-bdc4ae3c8ec0.png" alt="AutoNova" class="hero-image">
-    <div class="hero-content">
-      <h1>AutoNova</h1>
-      <p>los mejores en la venta y compra de autos</p>
-    </div>
-  </div>
-  
-    
-    <div class="carousel-container" id="catalogo">
-      <div class="carousel-slide">
-        <a href="Audi.html" class="carousel-item">
-          <img src="HTML/img/images.png" alt="Audi">
-          <h3>Audi</h3>
-        </a>
-        <a href="HTML/Mercedes.html" class="carousel-item">
-          <img src="HTML/img/Mercedes-Benz_Star_2022.svg.png" alt="Mercedes">
-          <h3>Mercedes</h3>
-        </a>
-        <a href="HTML/Ferrari.html" class="carousel-item">
-          <img src="HTML/img/images-removebg-preview.png" alt="Ferrari">
-          <h3>Ferrari</h3>
-        </a>
-        <a href="Ford.html" class="carousel-item">
-          <img src="HTML/img/images-removebg-preview(1).png" alt="Ford">
-          <h3>Ford</h3>
-        </a>
-        <a href="chevrolet.html" class="carousel-item">
-          <img src="HTML/img/chevrolet.png" alt="Chevrolet">
-          <h3>Chevrolet</h3>
-        </a>
+  <main>
+    <section class="hero" id="inicio">
+      <img src="HTML/img/photo-1630574857663-bdc4ae3c8ec0.png" alt="AutoNova" class="hero-image">
+      <div class="hero-content">
+        <h1>AutoNova</h1>
+        <p>Los mejores en la venta y compra de autos</p>
       </div>
-      <button class="carousel-btn prev">❮</button>
-      <button class="carousel-btn next">❯</button>
-    </div>
-    <script src="JS/carousel.js"></script>
-  </section>
-  
-     <section id="contacto" class="contacto">
-      <h1>AutoNova</h1>
-      <p>Contacto: +54-9-299-628-3362</p>
-      <p>Si no hay respuesta, llamar al: +54-9-299-429-8484</p>
-
-      <h2>Redes sociales:</h2>
-      <div class="container-redes">
-        <div class="icono instagram" tabindex="0" aria-label="Instagram">
-          <a href="https://www.instagram.com/automotoraautonova/">
-             <img src="HTML/img_contactos/instagram.png" alt="Instagram">
+    </section>
+    
+    <section class="catalogo" id="catalogo">
+      <div class="carousel-container">
+        <div class="carousel-slide">
+          <a href="HTML/Audi.html" class="carousel-item">
+            <img src="HTML/img/images.png" alt="Audi">
+            <h3>Audi</h3>
+          </a>
+          <a href="HTML/Mercedes.html" class="carousel-item">
+            <img src="HTML/img/Mercedes-Benz_Star_2022.svg.png" alt="Mercedes">
+            <h3>Mercedes</h3>
+          </a>
+          <a href="HTML/Ferrari.html" class="carousel-item">
+            <img src="HTML/img/images-removebg-preview.png" alt="Ferrari">
+            <h3>Ferrari</h3>
+          </a>
+          <a href="HTML/Ford.html" class="carousel-item">
+            <img src="HTML/img/images-removebg-preview(1).png" alt="Ford">
+            <h3>Ford</h3>
           </a>
         </div>
-
-        <div class="icono twitter" tabindex="0" aria-label="Twitter (X)">
-          <a href="https://x.com/?lang=es">
-            <img src="HTML/img_contactos/pngegg.png" alt="Twitter (X)">
-          </a>
+        <button class="carousel-btn prev">❮</button>
+        <button class="carousel-btn next">❯</button>
+      </div>
+      <script src="JS/carousel.js"></script>
+    </section>
+    
+    <section id="contacto" class="contacto">
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <p class="eyebrow">AutoNova</p>
+          <h2>Estamos para ayudarte</h2>
+          <p>Contáctanos a cualquier hora para recibir asesoramiento personalizado sobre tu próximo vehículo.</p>
+          <div class="contact-details">
+            <div>
+              <span class="label">Teléfono principal</span>
+              <a href="tel:+5492996283362">+54 9 299 628 3362</a>
+            </div>
+            <div>
+              <span class="label">Teléfono alternativo</span>
+              <a href="tel:+5492994298484">+54 9 299 429 8484</a>
+            </div>
+            <div>
+              <span class="label">Email</span>
+              <a href="mailto:enzo.lautaro.epet18@gmail.com">enzo.lautaro.epet18@gmail.com</a>
+            </div>
+          </div>
+          <a class="cta-link" href="HTML/agregar.php">Publicar un auto</a>
         </div>
-
-        <div class="icono whatsapp" tabindex="0" aria-label="Whatsapp">
-          <a href="https://web.whatsapp.com/">
-            <img src="HTML/img_contactos/Whatsapp (2).png" alt="Whatsapp">
-          </a>
-        </div>
-
-        <div class="icono facebook" tabindex="0" aria-label="Facebook">
-          <a href="https://www.facebook.com/?locale=es_LA">
-            <img src="HTML/img_contactos/Facebook (2).png" alt="Facebook">
-          </a>
-        </div>
-
-        <div class="icono Gmail" tabindex="0" aria-label="Gmail">
-          <a href="https://mail.google.com/mail/u/1/#inbox">
-            <img src="HTML/img_contactos/icono-del-sobre-correo-electrónico-vector-el-símbolo-mensaje-aislado-en-fondo-transparente-126372737.webp" alt="Gmail">
-          </a>
+        <div class="contact-social">
+          <h3>Redes sociales</h3>
+          <p>Seguinos o escribinos por tu canal favorito.</p>
+          <div class="container-redes">
+            <div class="icono instagram" tabindex="0" aria-label="Instagram">
+              <a href="https://www.instagram.com/automotoraautonova/" target="_blank" rel="noopener">
+                 <img src="HTML/img_contactos/instagram.png" alt="Instagram">
+              </a>
+            </div>
+            <div class="icono twitter" tabindex="0" aria-label="Twitter (X)">
+              <a href="https://x.com/?lang=es" target="_blank" rel="noopener">
+                <img src="HTML/img_contactos/pngegg.png" alt="Twitter (X)">
+              </a>
+            </div>
+            <div class="icono whatsapp" tabindex="0" aria-label="Whatsapp">
+              <a href="https://web.whatsapp.com/" target="_blank" rel="noopener">
+                <img src="HTML/img_contactos/Whatsapp (2).png" alt="Whatsapp">
+              </a>
+            </div>
+            <div class="icono facebook" tabindex="0" aria-label="Facebook">
+              <a href="https://www.facebook.com/?locale=es_LA" target="_blank" rel="noopener">
+                <img src="HTML/img_contactos/Facebook (2).png" alt="Facebook">
+              </a>
+            </div>
+            <div class="icono Gmail" tabindex="0" aria-label="Gmail">
+              <a href="https://mail.google.com/mail/u/1/#inbox" target="_blank" rel="noopener">
+                <img src="HTML/img_contactos/icono-del-sobre-correo-electrónico-vector-el-símbolo-mensaje-aislado-en-fondo-transparente-126372737.webp" alt="Gmail">
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <p>Puedes mandarnos un mensaje mdeiante nuestro correo electronicos que son los siguientes: enzo.lautaro.epet18@gmail.com</p>
-  <p>y si no hay respuestas podes envias tambien al siguiente correo: Correo Gomez</p>
-
   <footer>
     <h2>Derechos reservados ® EPET 20</h2>
   </footer>
-
-  <a class="btn btn-outline-dark mx-3" href="HTML/agregar.php" role="button">Agregar carro</a>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
   integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8wF4T2uHlD4V4M6P3fW0G5n83W" 

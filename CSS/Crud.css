@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Fondo claro para contraste */
+}
+
+/* 2. Contenedor Principal de la Barra de Navegación */
+.navbar-container {
+    background-color: #0d2c49; /* Fondo azul oscuro similar a la captura */
+    width: 100%;
+    /* Altura definida, ajusta el valor (ej: 80px) según necesites */
+    height: 90px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+/* 3. Estilo del Contenedor de la Navegación (Flexbox) */
+.navbar {
+    /* Usamos Flexbox para alinear el logo y los enlaces */
+    display: flex;
+    /* Alinea los elementos (logo y links) a los extremos */
+    justify-content: space-between; 
+    /* Centra los elementos verticalmente */
+    align-items: center; 
+    
+    /* Limita el ancho del contenido interno (opcional) */
+    max-width: 1200px; 
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+    padding: 0 20px; /* Espaciado interno a los lados */
+    height: 100%; /* Ocupa toda la altura del contenedor padre */
+}
+
+/* 4. Estilo del Logo */
+.navbar-logo img {
+    /* Establece la altura de la imagen para que encaje bien */
+    height: 70px; 
+    /* Elimina el espacio extra debajo de las imágenes */
+    display: block; 
+}
+
+/* 5. Estilos de la Lista de Enlaces (UL) */
+.navbar-links {
+    list-style: none; /* Quita los puntos de la lista */
+    display: flex; /* Muestra los elementos en línea */
+}
+
+/* 6. Estilos de cada Elemento de la Lista (LI) */
+.navbar-links li {
+    margin-left: 30px; /* Espaciado entre los elementos del menú */
+}
+
+/* 7. Estilos de los Enlaces (A) */
+.navbar-links a {
+    text-decoration: none; /* Quita el subrayado */
+    color: white; /* Color del texto */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 1.1em; /* Tamaño de fuente */
+    padding: 5px 0; /* Espaciado vertical (opcional) */
+    
+    /* Alineación vertical extra para asegurar el centrado si la altura es fija */
+    display: block; 
+    line-height: 50px; /* Ajusta este valor si cambias la altura del navbar */
+    
+    /* Para la transición de hover */
+    transition: color 0.3s ease; 
+}
+
+/* 8. Efecto al pasar el ratón (Hover) */
+.navbar-links a:hover {
+    color: #ffcc00; /* Color amarillo o resaltado al pasar el ratón */
+}
+
+/* 9. Estilo para el elemento activo/actual (Opcional) */
+/* .navbar-links a.active {
+    color: #ffcc00;
+    border-bottom: 2px solid #ffcc00;
+} */

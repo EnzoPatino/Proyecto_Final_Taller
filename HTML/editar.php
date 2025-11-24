@@ -1,28 +1,28 @@
 <?php
 $conexion = mysqli_connect("localhost", "root", "", "AutoNova");
-
 if (!$conexion) {
     die("Error de conexión: " . mysqli_connect_error());
 }
 
-$id = $_GET['ID_Autos'] ?? null;
-
-if (!$id) {
-    header("Location: ../crud.php");
+$id = isset($_GET['ID_Autos']) ? intval($_GET['ID_Autos']) : 0;
+if ($id <= 0) {
+    header("Location: ../crud.php?msg=" . urlencode("ID inválido"));
     exit;
 }
 
-$id = intval($id);
-$resultado = mysqli_query($conexion, "SELECT * FROM autos WHERE ID_Autos = $id");
-$auto = mysqli_fetch_assoc($resultado);
+$stmt = mysqli_prepare($conexion, "SELECT * FROM autos WHERE ID_Autos = ?");
+mysqli_stmt_bind_param($stmt, "i", $id);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$auto = mysqli_fetch_assoc($result);
+mysqli_stmt_close($stmt);
 
 if (!$auto) {
     mysqli_close($conexion);
-    header("Location: ../crud.php");
+    header("Location: ../crud.php?msg=" . urlencode("Auto no encontrado"));
     exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -47,7 +47,7 @@ if (!$auto) {
         <div class="card shadow-sm">
             <div class="card-body">
                 <form action="actualizar.php" method="POST" class="mx-3 my-2" style="max-width: 750px;">
-                    <input type="hidden" name="id" value="<?php echo $auto['ID_Autos']; ?>">
+                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($auto['ID_Autos']); ?>">
 
                     <div class="mb-3">
                         <label for="marca" class="form-label">Marca</label>
@@ -63,8 +63,7 @@ if (!$auto) {
 
                     <div class="mb-3">
                         <label for="contenido" class="form-label">Descripción / Contenido</label>
-                        <textarea id="contenido" name="contenido" class="form-control" rows="4"
-                            required><?php echo htmlspecialchars($auto['Contenido']); ?></textarea>
+                        <textarea id="contenido" name="contenido" class="form-control" rows="4" required><?php echo htmlspecialchars($auto['Contenido']); ?></textarea>
                     </div>
 
                     <div class="mb-3">

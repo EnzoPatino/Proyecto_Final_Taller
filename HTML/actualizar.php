@@ -5,21 +5,25 @@ if (!$conexion) {
     die("Error de conexión: " . mysqli_connect_error());
 }
 
-$id = intval($_POST['id'] ?? 0);
-$marca = mysqli_real_escape_string($conexion, $_POST['marca'] ?? '');
-$modelo = mysqli_real_escape_string($conexion, $_POST['modelo'] ?? '');
-$contenido = mysqli_real_escape_string($conexion, $_POST['contenido'] ?? '');
+$id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+$marca = trim($_POST['marca'] ?? '');
+$modelo = trim($_POST['modelo'] ?? '');
+$contenido = trim($_POST['contenido'] ?? '');
 $precio = floatval($_POST['precio'] ?? 0);
 
-$consulta = "UPDATE autos SET Marca = '$marca', Modelo = '$modelo', Contenido = '$contenido', Precios = $precio WHERE ID_Autos = $id";
-
-if (mysqli_query($conexion, $consulta)) {
-    header("Location: ../crud.php");
+if ($id <= 0 || $marca === '' || $modelo === '' || $contenido === '' || $precio < 0) {
+    header("Location: ../crud.php?msg=" . urlencode("Datos inválidos"));
     exit;
-} else {
-    echo "Error al actualizar: " . mysqli_error($conexion);
 }
 
+$stmt = mysqli_prepare($conexion, "UPDATE autos SET Marca = ?, Modelo = ?, Contenido = ?, Precios = ? WHERE ID_Autos = ?");
+mysqli_stmt_bind_param($stmt, "sssdi", $marca, $modelo, $contenido, $precio, $id);
+$ok = mysqli_stmt_execute($stmt);
+mysqli_stmt_close($stmt);
 mysqli_close($conexion);
+
+$msg = $ok ? "Auto actualizado" : "Error al actualizar";
+header("Location: ../crud.php?msg=" . urlencode($msg));
+exit;
 ?>
 
