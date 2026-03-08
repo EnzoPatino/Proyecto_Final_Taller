@@ -1,4 +1,8 @@
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 :root {
   --nav-bg: #0d2c49;
@@ -176,8 +180,13 @@ section.productos {
   z-index: 10;
 }
 
-.prev { left: 20px; }
-.next { right: 20px; }
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
 
 .hero {
   width: 100%;
@@ -234,7 +243,7 @@ section.productos {
   .hero-content h1 {
     font-size: 2.4rem;
   }
-  
+
   .hero-content p {
     font-size: 1.2rem;
   }
@@ -242,61 +251,86 @@ section.productos {
 
 /* Redes sociales: alineadas a la izquierda y glow por color al hover */
 .container-redes {
-    display: flex;
-    gap: 24px;
-    margin-top: 12px;
-    justify-content: flex-start; /* asegura que queden a la izquierda */
-    align-items: center;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 24px;
+  margin-top: 12px;
+  justify-content: flex-start;
+  /* asegura que queden a la izquierda */
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .icono {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    background: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    outline: none;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  outline: none;
 }
 
 .icono img {
-    width: 44px;
-    height: 44px;
-    object-fit: contain;
-    filter: grayscale(100%); /* iconos en gris por defecto */
-    transition: filter 180ms ease, transform 180ms ease;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  /* iconos en gris por defecto */
+  transition: filter 180ms ease, transform 180ms ease;
 }
 
 /* al pasar el mouse se recupera color y aparece el glow del color de la marca */
 .icono:hover,
 .icono:focus {
-    transform: translateY(-4px);
+  transform: translateY(-4px);
 }
 
 .icono:hover img,
 .icono:focus img {
-    filter: none;
+  filter: none;
 }
 
 /* colores de marca (sombra/glow) */
-.icono.instagram:hover    { box-shadow: 0 8px 28px rgb(255, 0, 85); }
-.icono.twitter:hover      { box-shadow: 0 8px 28px rgb(2, 126, 204); }
-.icono.whatsapp:hover     { box-shadow: 0 8px 28px rgb(10, 236, 93); }
-.icono.facebook:hover     { box-shadow: 0 8px 28px rgba(3, 67, 151, 0.951); }
-.icono.Gmail:hover        { box-shadow: 0 8px 28px rgb(219, 68, 55); }
+.icono.instagram:hover {
+  box-shadow: 0 8px 28px rgb(255, 0, 85);
+}
+
+.icono.twitter:hover {
+  box-shadow: 0 8px 28px rgb(2, 126, 204);
+}
+
+.icono.whatsapp:hover {
+  box-shadow: 0 8px 28px rgb(10, 236, 93);
+}
+
+.icono.facebook:hover {
+  box-shadow: 0 8px 28px rgba(3, 67, 151, 0.951);
+}
+
+.icono.Gmail:hover {
+  box-shadow: 0 8px 28px rgb(219, 68, 55);
+}
 
 /* accesibilidad teclado */
-.icono:focus { box-shadow: 0 8px 28px rgba(0,0,0,0.12); }
+.icono:focus {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+}
 
 /* opcional: ajusta tamaño en pantallas pequeñas */
 @media (max-width: 480px) {
-    .icono { width: 60px; height: 60px; }
-    .icono img { width: 36px; height: 36px; }
+  .icono {
+    width: 60px;
+    height: 60px;
+  }
+
+  .icono img {
+    width: 36px;
+    height: 36px;
+  }
 }
 
 /* Contacto */
@@ -386,4 +420,62 @@ footer {
   text-align: center;
   padding: 24px 12px;
   margin-top: 60px;
+}
+
+.hero-text {
+  position: relative;
+  display: inline-block;
+  padding: 20px 40px;
+  color: white;
+  text-align: center;
+}
+
+.hero-text::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+  z-index: -1;
+  border-radius: 8px;
+}
+
+.hero-text.hovered::before {
+  width: 120%;
+  height: 120%;
+}
+
+.hero-title {
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 10px;
+  transition: 0.3s;
+  color: white;
+}
+
+.hero-title:hover {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-desc {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.desc-box {
+  padding: 6px 15px;
+  border-radius: 8px;
+  transition: 0.3s;
+  color: white;
+}
+
+.desc-box:hover {
+  background: rgba(0, 0, 0, 0.55);
 }
